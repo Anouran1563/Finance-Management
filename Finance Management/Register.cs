@@ -45,7 +45,7 @@ namespace Finance_Management
                 {
                     connect.Open();
                     //Check if Username already exists
-                    string selectUsername = "SELECT * FROM dbo.[Table] WHERE Username = @usern";
+                    string selectUsername = "SELECT * FROM USERS WHERE Username = @usern";
 
                     using (SqlCommand checkUser = new SqlCommand(selectUsername, connect))
                     {
@@ -72,7 +72,7 @@ namespace Finance_Management
                         }
                         else
                         {
-                            string insertData = "INSERT INTO (Username, Password, Date_Create) VALUES(@usern, @pass, @Date_Create)";
+                            string insertData = "INSERT INTO USERS (Username, Password, Date_Create) VALUES(@usern, @pass, @Date_Create)";
 
                             using (SqlCommand insertUser = new SqlCommand(insertData, connect))
                             {
@@ -92,7 +92,7 @@ namespace Finance_Management
                     }
                 }catch(Exception ex)
                 {
-                    MessageBox.Show($"An error occoured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"An error occoured: {ex.Message}\n\nStack Trace: {ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
