@@ -1,7 +1,11 @@
-﻿CREATE TABLE [dbo].[Table]
-(
-	Id INT PRIMARY KEY Identity (1,1),
-	Username VARCHAR (MAX) NULL,
-	Password VARCHAR (MAX) NULL,
-	date_create DATE NULL
-)
+﻿CREATE TABLE [dbo].[USERS] (
+    [Id]          INT           IDENTITY (1, 1) NOT NULL,
+    [Username]    VARCHAR (100) NOT NULL,
+    [Password]    VARCHAR (255) NOT NULL,
+    [Date_Create] DATETIME NOT NULL DEFAULT GETDATE(),
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+Go
+SELECT * FROM USERS
+SELECT Username, Password, Date_Create FROM dbo.USERS;
