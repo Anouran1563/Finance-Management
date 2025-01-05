@@ -159,6 +159,7 @@
             cBoxPassShow.TabIndex = 4;
             cBoxPassShow.Text = "Show Password";
             cBoxPassShow.UseVisualStyleBackColor = true;
+            cBoxPassShow.CheckedChanged += cBoxPassShow_CheckedChanged;
             // 
             // btnLogin
             // 
@@ -198,6 +199,7 @@
             Controls.Add(label1);
             Controls.Add(panel1);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
