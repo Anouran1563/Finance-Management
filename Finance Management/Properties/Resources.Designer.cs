@@ -59,5 +59,15 @@ namespace Finance_Management.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eyes_office_women_glasses_icon {
+            get {
+                object obj = ResourceManager.GetObject("eyes-office-women-glasses-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

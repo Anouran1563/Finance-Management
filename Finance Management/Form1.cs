@@ -40,7 +40,11 @@ namespace Finance_Management
 
                 if (table.Rows.Count > 0)
                 {
-                    MessageBox.Show("Login Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);                }
+                    MessageBox.Show("Login Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Main main = new Main();
+                    this.Hide();
+                    main.Show();
+                }
                 else
                 {
                     MessageBox.Show("Invalid Username or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
