@@ -38,12 +38,12 @@
             btnClear = new Button();
             btnUpdate = new Button();
             btnAdd = new Button();
+            cbBoxType = new ComboBox();
             cbBoxStatus = new ComboBox();
             label1 = new Label();
             txtName = new TextBox();
             label2 = new Label();
             label3 = new Label();
-            cbBoxType = new ComboBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
@@ -171,6 +171,18 @@
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
+            // cbBoxType
+            // 
+            cbBoxType.BackColor = SystemColors.ButtonFace;
+            cbBoxType.FlatStyle = FlatStyle.Flat;
+            cbBoxType.ForeColor = SystemColors.ActiveCaptionText;
+            cbBoxType.FormattingEnabled = true;
+            cbBoxType.Items.AddRange(new object[] { "income", "expense" });
+            cbBoxType.Location = new Point(15, 119);
+            cbBoxType.Name = "cbBoxType";
+            cbBoxType.Size = new Size(121, 25);
+            cbBoxType.TabIndex = 7;
+            // 
             // cbBoxStatus
             // 
             cbBoxStatus.BackColor = SystemColors.ButtonFace;
@@ -227,18 +239,6 @@
             label3.Size = new Size(78, 32);
             label3.TabIndex = 3;
             label3.Text = "Status";
-            // 
-            // cbBoxType
-            // 
-            cbBoxType.BackColor = SystemColors.ButtonFace;
-            cbBoxType.FlatStyle = FlatStyle.Flat;
-            cbBoxType.ForeColor = SystemColors.ActiveCaptionText;
-            cbBoxType.FormattingEnabled = true;
-            cbBoxType.Items.AddRange(new object[] { "active", "inactive" });
-            cbBoxType.Location = new Point(15, 119);
-            cbBoxType.Name = "cbBoxType";
-            cbBoxType.Size = new Size(121, 25);
-            cbBoxType.TabIndex = 7;
             // 
             // FormCategory
             // 

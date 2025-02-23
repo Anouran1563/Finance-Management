@@ -12,21 +12,31 @@ namespace Finance_Management
 {
     public partial class Main : Form
     {
+        private FormDashboard dashboard; // Class-level instance
+        private FormCategory cat; // Class-level instance
+
         public Main()
         {
             InitializeComponent();
+
+            // Remove local declarations, use the class-level variables instead
+            dashboard = new FormDashboard(); // Assign to class-level variable
+            dashboard.Visible = false; // Initially set to not visible
+            this.Controls.Add(dashboard); // Add it to the form
+
+            cat = new FormCategory(); // Assign to class-level variable
+            cat.Visible = false; // Initially set to not visible
+            this.Controls.Add(cat); // Add it to the form
         }
 
         private void btnDash_Click(object sender, EventArgs e)
         {
-            FormDashboard formDashboard = new FormDashboard();
-            formDashboard.Show();
+            dashboard.Visible = true;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FormCategory formCategory = new FormCategory();
-            formCategory.Show();
+            cat.Visible = false;
         }
 
         private void btnIncome_Click(object sender, EventArgs e)

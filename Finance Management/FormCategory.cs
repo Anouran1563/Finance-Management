@@ -37,7 +37,22 @@ namespace Finance_Management
                 {
                     connect.Open();
 
-                    string insertData = "INSERT INTO CATEGORY";
+                    string insertData = "INSERT INTO CATEGORies(category, type, status, DoC)"+
+                        "VALUES (@cat, @type, @status, @date)";
+
+                    using (SqlCommand cmd = new SqlCommand(insertData, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@cat", txtName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@type", cbBoxType.SelectedItem);
+                        cmd.Parameters.AddWithValue("@status", cbBoxStatus.SelectedItem);
+
+                        DateTime today = DateTime.Today;
+                        cmd.Parameters.AddWithValue("@date", today);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Added successfully");
+                    }
                 }
             }
         }

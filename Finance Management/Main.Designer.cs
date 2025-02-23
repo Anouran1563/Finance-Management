@@ -43,6 +43,7 @@
             pictureBox1 = new PictureBox();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             formDashboard1 = new FormDashboard();
+            formCategory1 = new FormCategory();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -207,11 +208,20 @@
             formDashboard1.Size = new Size(907, 526);
             formDashboard1.TabIndex = 1;
             // 
+            // formCategory1
+            // 
+            formCategory1.BackColor = SystemColors.InactiveCaption;
+            formCategory1.Location = new Point(249, 0);
+            formCategory1.Name = "formCategory1";
+            formCategory1.Size = new Size(923, 529);
+            formCategory1.TabIndex = 2;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1164, 523);
+            Controls.Add(formCategory1);
             Controls.Add(formDashboard1);
             Controls.Add(panel1);
             Name = "Main";
@@ -243,5 +253,6 @@
         private PictureBox pictureBox4;
         private PictureBox pictureBox6;
         private FormDashboard formDashboard1;
+        private FormCategory formCategory1;
     }
 }
