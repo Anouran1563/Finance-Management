@@ -37,7 +37,7 @@ namespace Finance_Management
                 {
                     connect.Open();
 
-                    string insertData = "INSERT INTO CATEGORies(category, type, status, DoC)"+
+                    string insertData = "INSERT INTO CATEGORY(category, type, status, DoC)"+
                         "VALUES (@cat, @type, @status, @date)";
 
                     using (SqlCommand cmd = new SqlCommand(insertData, connect))
