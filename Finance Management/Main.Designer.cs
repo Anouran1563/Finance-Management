@@ -211,7 +211,7 @@
             // formCategory1
             // 
             formCategory1.BackColor = SystemColors.InactiveCaption;
-            formCategory1.Location = new Point(249, 0);
+            formCategory1.Location = new Point(249, 1);
             formCategory1.Name = "formCategory1";
             formCategory1.Size = new Size(923, 529);
             formCategory1.TabIndex = 2;

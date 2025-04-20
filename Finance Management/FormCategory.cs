@@ -18,6 +18,15 @@ namespace Finance_Management
         public FormCategory()
         {
             InitializeComponent();
+
+            DisplayList();
+        }
+
+        public void DisplayList()
+        {
+            catData cData = new catData();
+            List<catData> listData = cData.CatListData;
+            dgvCat.DataSource = listData;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -37,7 +46,7 @@ namespace Finance_Management
                 {
                     connect.Open();
 
-                    string insertData = "INSERT INTO CATEGORY(category, type, status, DoC)"+
+                    string insertData = "INSERT INTO CATEGORY(category, type, status, DoC)" +
                         "VALUES (@cat, @type, @status, @date)";
 
                     using (SqlCommand cmd = new SqlCommand(insertData, connect))
@@ -55,6 +64,46 @@ namespace Finance_Management
                     }
                 }
             }
+            DisplayList();
+        }
+
+        private int getID;
+        private void dgvCat_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dgvCat.Rows[e.RowIndex];
+
+            getID = Convert.ToInt32(row.Cells[0].Value);
+            txtName.Text = row.Cells[1].Value.ToString();
+            cbBoxType.SelectedItem = row.Cells[2].Value.ToString();
+            cbBoxStatus.SelectedItem = row.Cells[3].Value.ToString();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (txtName.Text == "" || cbBoxType.SelectedIndex == -1 || cbBoxStatus.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please fill all blank fields!");
+            }
+            else
+            {
+                using (SqlConnection connect = new SqlConnection(stringConnect))
+                {
+                    connect.Open();
+                    string updateData = "UPDATE category SET category @category, type = @type, status = @status WHERE id = @Id";
+
+                    using (SqlCommand cmd = new SqlCommand(updateData, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@category", txtName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@type", cbBoxType.SelectedItem);
+                        cmd.Parameters.AddWithValue("@status", cbBoxStatus.SelectedItem);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Updated successfully");
+                    }
+
+                    connect.Close();
+                }
+            }
+            DisplayList();
         }
     }
 }

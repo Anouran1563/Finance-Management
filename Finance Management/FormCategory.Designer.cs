@@ -30,8 +30,10 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel2 = new Panel();
-            dataGridView1 = new DataGridView();
+            dgvCat = new DataGridView();
             label4 = new Label();
             panel1 = new Panel();
             btnRemove = new Button();
@@ -45,47 +47,62 @@
             label2 = new Label();
             label3 = new Label();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCat).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.ButtonFace;
-            panel2.Controls.Add(dataGridView1);
+            panel2.Controls.Add(dgvCat);
             panel2.Controls.Add(label4);
             panel2.Location = new Point(271, 15);
             panel2.Name = "panel2";
             panel2.Size = new Size(621, 501);
             panel2.TabIndex = 3;
             // 
-            // dataGridView1
+            // dgvCat
             // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.SeaGreen;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.Enabled = false;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(19, 45);
-            dataGridView1.Name = "dataGridView1";
+            dgvCat.AllowUserToAddRows = false;
+            dgvCat.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dgvCat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvCat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCat.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.BackColor = Color.SeaGreen;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(575, 442);
-            dataGridView1.TabIndex = 6;
+            dgvCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvCat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvCat.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvCat.Enabled = false;
+            dgvCat.EnableHeadersVisualStyles = false;
+            dgvCat.Location = new Point(19, 45);
+            dgvCat.Name = "dgvCat";
+            dgvCat.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvCat.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgvCat.RowHeadersVisible = false;
+            dgvCat.Size = new Size(575, 442);
+            dgvCat.TabIndex = 6;
+            dgvCat.CellClick += dgvCat_CellClick;
             // 
             // label4
             // 
@@ -156,6 +173,7 @@
             btnUpdate.TabIndex = 9;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnAdd
             // 
@@ -251,7 +269,7 @@
             Size = new Size(923, 533);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCat).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -270,7 +288,7 @@
         private TextBox txtName;
         private Label label2;
         private Label label3;
-        private DataGridView dataGridView1;
+        private DataGridView dgvCat;
         private Label label4;
         private ComboBox cbBoxType;
     }
