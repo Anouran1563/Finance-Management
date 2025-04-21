@@ -36,7 +36,7 @@
             dgvCat = new DataGridView();
             label4 = new Label();
             panel1 = new Panel();
-            btnRemove = new Button();
+            btnDel = new Button();
             btnClear = new Button();
             btnUpdate = new Button();
             btnAdd = new Button();
@@ -72,7 +72,7 @@
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.SeaGreen;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
@@ -103,6 +103,7 @@
             dgvCat.Size = new Size(575, 442);
             dgvCat.TabIndex = 6;
             dgvCat.CellClick += dgvCat_CellClick;
+            dgvCat.CellContentClick += dgvCat_CellClick;
             // 
             // label4
             // 
@@ -119,7 +120,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ButtonFace;
-            panel1.Controls.Add(btnRemove);
+            panel1.Controls.Add(btnDel);
             panel1.Controls.Add(btnClear);
             panel1.Controls.Add(btnUpdate);
             panel1.Controls.Add(btnAdd);
@@ -135,18 +136,19 @@
             panel1.TabIndex = 2;
             panel1.Paint += panel1_Paint;
             // 
-            // btnRemove
+            // btnDel
             // 
-            btnRemove.BackColor = Color.SeaGreen;
-            btnRemove.FlatStyle = FlatStyle.Flat;
-            btnRemove.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            btnRemove.ForeColor = SystemColors.ButtonFace;
-            btnRemove.Location = new Point(139, 327);
-            btnRemove.Name = "btnRemove";
-            btnRemove.Size = new Size(90, 45);
-            btnRemove.TabIndex = 9;
-            btnRemove.Text = "Remove";
-            btnRemove.UseVisualStyleBackColor = false;
+            btnDel.BackColor = Color.SeaGreen;
+            btnDel.FlatStyle = FlatStyle.Flat;
+            btnDel.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnDel.ForeColor = SystemColors.ButtonFace;
+            btnDel.Location = new Point(139, 327);
+            btnDel.Name = "btnDel";
+            btnDel.Size = new Size(90, 45);
+            btnDel.TabIndex = 9;
+            btnDel.Text = "Remove";
+            btnDel.UseVisualStyleBackColor = false;
+            btnDel.Click += btnDel_Click;
             // 
             // btnClear
             // 
@@ -160,6 +162,7 @@
             btnClear.TabIndex = 9;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // btnUpdate
             // 
@@ -279,7 +282,7 @@
 
         private Panel panel2;
         private Panel panel1;
-        private Button btnRemove;
+        private Button btnDel;
         private Button btnClear;
         private Button btnUpdate;
         private Button btnAdd;

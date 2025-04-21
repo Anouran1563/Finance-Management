@@ -29,6 +29,7 @@ namespace Finance_Management
             dgvCat.DataSource = listData;
         }
 
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -104,6 +105,44 @@ namespace Finance_Management
                 }
             }
             DisplayList();
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            if (txtName.Text == "" || cbBoxType.SelectedIndex == -1 || cbBoxStatus.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please fill all blank fields!");
+            }
+            else
+            {
+                using (SqlConnection connect = new SqlConnection(stringConnect))
+                {
+                    connect.Open();
+                    string updateData = "DELETE category WHERE id = @Id";
+
+                    using (SqlCommand cmd = new SqlCommand(updateData, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@Id", getID);
+                        cmd.ExecuteNonQuery();
+                        clearFields();
+                        MessageBox.Show("Deleted successfully");
+                    }
+
+                    connect.Close();
+                }
+            }
+            DisplayList();
+        }
+
+        private void clearFields()
+        {
+            txtName.Clear();
+            cbBoxType.SelectedIndex = -1;
+            cbBoxStatus.SelectedIndex = -1;
+        }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearFields();
         }
     }
 }
